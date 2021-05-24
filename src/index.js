@@ -1,3 +1,12 @@
+// COMPONENTE BASE
+
+
+// 1. IMPORTACIONES
+
+// => Es la versión ES6+ de require
+// a. Métodos nativos de React (hooks)
+// b. Librerías externas. (Axios, stripe, chart.js... NPM)
+// c. Carpetas, archivos y componentes (Imágenes, CSS, otros archivos JS como bootstrap)
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -5,7 +14,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // ETIQUETA DE SEGURIDAD DE INYECCIÓN DE DATOS
+  <React.StrictMode> 
     <App />
   </React.StrictMode>,
   document.getElementById('root')
