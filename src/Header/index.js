@@ -29,7 +29,6 @@ function Header(){
         "Torta de carne al pastor"
     ]
 
-
     // 2. RETORNO
     return(
         <>
@@ -37,9 +36,9 @@ function Header(){
             <p>Hola soy {`${nombre} ${apellido}`}</p>
             <p>Mi pais es {pais.nombre} y comemos {pais.comida}</p>
             <p>{generarEdad()}</p> */}
-            <Logo nombre="Logo 1" taquerias={taquerias.taqueriaUno} menu={menu} />
+            {/* <Logo nombre="Logo 1" taquerias={taquerias.taqueriaUno} menu={menu} />
             <Logo nombre="Logo 2" taquerias={taquerias.taqueriaDos} menu={menu} />
-            <Nav />
+            <Nav /> */}
         </>
     )
 }

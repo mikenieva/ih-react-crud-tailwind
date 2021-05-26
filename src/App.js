@@ -4,7 +4,9 @@ import React from 'react'
 import logo from './logo.svg';
 import './App.css';
 import Header from './Header'
+import Main from './Main'
 import Footer from './Footer'
+import Crud from './Crud'
 
 // 2. FUNCIÓN (COMPONENTE)
 function App() {
@@ -16,7 +18,11 @@ function App() {
     // FRAGMENTOS
     <> 
       <Header />
-      <Footer />
+      {/* <Main /> */}
+
+      <Crud />
+
+      {/* <Footer /> */}
     </>
   )
 }
