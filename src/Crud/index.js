@@ -81,7 +81,7 @@ export default function Crud() {
         const arregloFiltrado = comments.filter(item => {
             return id !== item.id
         })
-        
+
         setComments(arregloFiltrado)
     }
 
@@ -102,7 +102,7 @@ export default function Crud() {
 
         // 1. Evitar que se recargue la página y perdamos todos los datos
         event.preventDefault()
-        
+
         // 2. VALIDACIÓN
         // A. VERIFICAR QUE EL USUARIO NO ENVIE CAMPOS VACIOS
         if (!newComment.title.trim() || !newComment.description.trim()) {
@@ -153,32 +153,37 @@ export default function Crud() {
     return (
         <>
             {/* TÍTULO */}
-            <h2>{edition ? ("Editar comentario")  : ("Crear comentario")}</h2>
+            <h2 className="text-center text-3xl text-gray-900 py-8 sm:text-4xl">{edition ? ("Editar comentario") : ("Crear comentario")}</h2>
 
             {/* FORMULARIO */}
-            <form onSubmit={edition ? editarComentario : agregarComentario} >
 
-                <h3>Título</h3>
-                <input
-                    name="title"
-                    value={newComment.title}
-                    onChange={cambioInput}
-                />
+            <div className={edition ? "max-w-5xl mx-auto px-6 bg-yellow-100" : "max-w-5xl mx-auto px-6 bg-blue-100"}>
+                <form onSubmit={edition ? editarComentario : agregarComentario} >
+                    <h3 className="text-lg leading-6 font-medium text-gray-900 py-3">Título</h3>
+                    <input
+                        name="title"
+                        value={newComment.title}
+                        onChange={cambioInput}
+                        className="border shadow-sm mt-2 rounded-md border-gray-700 focus:ring-blue-700 focus:border-blue-700"
+                    />
 
-                <h3>Descripción</h3>
+                    <h3 className="text-lg leading-6 font-medium text-gray-900 py-3">Descripción</h3>
 
-                <input
-                    name="description"
-                    value={newComment.description}
-                    onChange={cambioInput}
+                    <input
+                        name="description"
+                        value={newComment.description}
+                        onChange={cambioInput}
 
-                />
+                    />
 
-                <button>
-                    {edition ? "Editar comentario" : "Agregar comentario"}
-                </button>
+                    <button>
+                        {edition ? "Editar comentario" : "Agregar comentario"}
+                    </button>
 
-            </form>
+                </form>
+            </div>
+
+
 
             { error ? error : null}
 
