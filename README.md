@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Documentación
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Instalación
 
-In the project directory, you can run:
+- Para instalar el proyecto
 
-### `npm start`
+```shell
+npm install
+npm run start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Para instalar TailwindCSS en Linux Arch:
 
-### `npm test`
+```shell
+ npm install -D -f tailwindcss@latest
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalación de TailwindCSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Instalar TailwindCSS con sus últimas actualizaciones. Posteriormente generar el archivo de tailwind.config.js
 
-### `npm run eject`
+```shell
+npm install tailwindcss@latest postcss@latest autoprefixer@latest
+npx tailwindcss init -p
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Instalamos Craco
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```shell
+npm install @craco/craco
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Realizamos los cambios en `package.json`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```javascript
+  {
+    "scripts": {
+     "start": "craco start",
+     "build": "craco build",
+     "test": "craco test",
+      "eject": "react-scripts eject"
+    },
+  }
+```
 
-## Learn More
+4. Creamos un archivo llamado `craco.config.js` y pasamos esta configuración:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+// craco.config.js
+module.exports = {
+  style: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
+  },
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Desinstalar la última versión de Tailwind y generar el proceso de compatibilidad
 
-### Code Splitting
+```shell
+npm uninstall tailwindcss postcss autoprefixer
+npm install tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## FAQs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Si tengo un error de compatilibidad con Node, ¿cuál usar?**
 
-### Deployment
+Se está utilizando la versión `v.14.16.0`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+**Tuve el error: `Cannot find module 'autoprefixer'`**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Link a issue: [](https://github.com/tailwindlabs/tailwindcss/issues/2831)
+
+
+
+
+
+
